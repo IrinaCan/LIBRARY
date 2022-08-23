@@ -1,12 +1,7 @@
-////// "раздел" для работы с читателями    //////////////
-///////////////////////////////////////////////////////
-
-// создание таблицы с читателями и кнопки "Добавить читателя"
 function createTableReaders(data) {
     cleanDivMain();
     createDivMain();
  
-    // кнопка "Добавить нового читателя "
     var buttonCreateReader = document.createElement("button");
     buttonCreateReader.classList.add("buttonCreateReader");
     buttonCreateReader.innerHTML="Добавить нового читателя";
@@ -15,12 +10,11 @@ function createTableReaders(data) {
     buttonCreateReader.onclick= function() {
         return formCreateUpdateDeleteReader(); 
     }
-    // блок для таблицы с читателями
+   
     var divTableReaders = document.createElement("div");
     divTableReaders.classList.add("divTableReaders");
     document.getElementById('divMain').append(divTableReaders);
-
-    // создание таблицы читателей с выводом данных читателей    
+  
     var tableReaders ="<table class='tableReaders' id='tableReaders' border='1'>"
     +"<tr>"
         +"<th>Номер</th>"
@@ -48,24 +42,19 @@ function createTableReaders(data) {
     divTableReaders.innerHTML = tableReaders;
 }
 
-// форма для ввода и редактирования данных читателя
-// по умолчанию параметрами заданы "пустые" value для заполнения
 function formCreateUpdateDeleteReader(id ='', surname ='', name='', dayB='',
     monthB ='Выбрать месяц', yearB ='', address ='', phone='', email= '') {
-    // блок с формой
 	var divFormCreateReader = document.createElement("div");
-    divFormCreateReader.classList.add("divFormCreateReader");
+   	divFormCreateReader.classList.add("divFormCreateReader");
 	divFormCreateReader.id = 'divFormCreateReader';
 	document.getElementById('divMain').append(divFormCreateReader);
 	
 	var formCreateReader = "<div id='divForm'>"
-    // "закрытие" формы 
-	+"<button class='btnCloseForm' onclick= divMain.removeChild(document.getElementById('divFormCreateReader'))>Закрыть</button>"
-	    // форма
-    +"<form id='formCreateUpdateReader'><table>"
-        +"<tr style='visibility:hidden';><td>Номер</td>"
-        +"<td><input type='text' name='id' value ='"+id+"' required></input></td></tr>"
-    	+"<tr><td>Фамилия</td>"
+		+"<button class='btnCloseForm' onclick= divMain.removeChild(document.getElementById('divFormCreateReader'))>Закрыть</button>"
+	     	+"<form id='formCreateUpdateReader'><table>"
+       		+"<tr style='visibility:hidden';><td>Номер</td>"
+        	+"<td><input type='text' name='id' value ='"+id+"' required></input></td></tr>"
+    		+"<tr><td>Фамилия</td>"
 		+"<td><input type='text' name='surname' value ='"+surname+"' required></input></td></tr>"
 		+"<tr><td>Имя</td>"
 		+"<td><input type='text' name='name' value ='"+name+"' required></input></td></tr>"
@@ -89,48 +78,44 @@ function formCreateUpdateDeleteReader(id ='', surname ='', name='', dayB='',
 			+"</select></td></tr>"
 		+"<tr><td>Год рождения</td>"
 		+"<td><input type='text' name='yearB' value ='"+yearB+"' required></input></td></tr>"
-        +"<tr><td>Адрес</td>"
+       		+"<tr><td>Адрес</td>"
 		+"<td><input type='text' name='address' value ='"+address+"' required ></input></td></tr>"
-	    +"<tr><td>Телефон</td>"
+	    	+"<tr><td>Телефон</td>"
 		+"<td><input type='text' name='phone' value= '"+phone+"' required ></input></td></tr>"
-	    +"<tr><td>Почта</td>"
+	    	+"<tr><td>Почта</td>"
 		+"<td><input type='email' name='email'value ='"+email+"' required ></input></td></tr></table>"
-        +"<button class='btnCreateReader' id='butCreateReader'type='button' onclick = 'createReader()'"
-	    +"'>Добавить нового читателя</button>"
-	+"</form>"
-	+"</div>";
+       		+"<button class='btnCreateReader' id='butCreateReader'type='button' onclick = 'createReader()'"
+	    	+"'>Добавить нового читателя</button>"
+		+"</form>"
+		+"</div>";
 	divFormCreateReader.innerHTML = formCreateReader;
 };
 
-// получение из формы данных о новом читателе
 function getFormReaderData($method) {
     var reader = {
-method:$method,        
-id:document.forms["formCreateUpdateReader"]["id"].value,    
-surname:document.forms["formCreateUpdateReader"]["surname"].value,
-name:document.forms["formCreateUpdateReader"]["name"].value,
-dayB:document.forms["formCreateUpdateReader"]["dayB"].value,
-monthB:document.forms["formCreateUpdateReader"]["monthB"].value,
-yearB:document.forms["formCreateUpdateReader"]["yearB"].value,
-address:document.forms["formCreateUpdateReader"]["address"].value,
-phone:document.forms["formCreateUpdateReader"]["phone"].value,
-email:document.forms["formCreateUpdateReader"]["email"].value
-    };
+	method:$method,        
+	id:document.forms["formCreateUpdateReader"]["id"].value,    
+	surname:document.forms["formCreateUpdateReader"]["surname"].value,
+	name:document.forms["formCreateUpdateReader"]["name"].value,
+	dayB:document.forms["formCreateUpdateReader"]["dayB"].value,
+	monthB:document.forms["formCreateUpdateReader"]["monthB"].value,
+	yearB:document.forms["formCreateUpdateReader"]["yearB"].value,
+	address:document.forms["formCreateUpdateReader"]["address"].value,
+	phone:document.forms["formCreateUpdateReader"]["phone"].value,
+	email:document.forms["formCreateUpdateReader"]["email"].value
+   };
 return JSON.stringify(reader);
 };
 
-// отправка данных нового читателя
 function createReader() {
     var newReader = getFormReaderData("create");
     zaprosPostAjax("../controllers/ReaderController.php", newReader);
-   zaprosGetAjax("../controllers/ReaderController.php"+'?'+'method=readAll', createTableReaders);
+    zaprosGetAjax("../controllers/ReaderController.php"+'?'+'method=readAll', createTableReaders);
 }
 
-// изменить данные конкретного читателя
 function updateDeleteReader(tr) {
     var indexReader = tr.rowIndex; // номер строки 
     var table = document.getElementById('tableReaders');
-    // по строке получение данных читателя
     var dataReader = {
         id: table.rows[indexReader].cells[0].innerHTML,
         surname: table.rows[indexReader].cells[1].innerHTML,
@@ -143,41 +128,36 @@ function updateDeleteReader(tr) {
         email: table.rows[indexReader].cells[6].innerHTML
     }
 
-    // создать форму и в value вставить данные читателя 
-    formCreateUpdateDeleteReader(dataReader.id, dataReader.surname, dataReader.name,
+ formCreateUpdateDeleteReader(dataReader.id, dataReader.surname, dataReader.name,
         dataReader.dayB, dataReader.monthB, 
         dataReader.yearB, dataReader.address, 
         dataReader.phone, dataReader.email);
-
-     // скрыть на форме кнопку "добавить нового читателя"   
+ 
         document.getElementById('butCreateReader').style.visibility='hidden';
    
- // создание кнопки для удаления читателя
-    var buttonDeleteReader =document.createElement("button");
-    buttonDeleteReader.classList.add("btnDeleteReader");
-    buttonDeleteReader.innerHTML='Удалить читателя';
-    document.getElementById("divFormCreateReader").append(buttonDeleteReader);
-    buttonDeleteReader.onclick = function() {
-    var idReaderAndMethod= {
-        method:"delete",
-        idReader:document.forms["formCreateUpdateReader"]["id"].value
+    	var buttonDeleteReader =document.createElement("button");
+    	buttonDeleteReader.classList.add("btnDeleteReader");
+    	buttonDeleteReader.innerHTML='Удалить читателя';
+    	document.getElementById("divFormCreateReader").append(buttonDeleteReader);
+   	buttonDeleteReader.onclick = function() {
+   	var idReaderAndMethod= {
+        	method:"delete",
+        	idReader:document.forms["formCreateUpdateReader"]["id"].value
     }; 
 idReaderAndMethod = JSON.stringify(idReaderAndMethod);
 if(confirm("Вы уверены, что хотите удалить данного читателя?")
     == true) {  
-zaprosPostAjax('../controllers/ReaderController.php', idReaderAndMethod);    
-zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
- }
+	zaprosPostAjax('../controllers/ReaderController.php', idReaderAndMethod);    
+	zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
+	}
 }
-// создание кнопки "редактировать"
-    var buttonUpdateReader = document.createElement("button");
-    buttonUpdateReader.classList.add("btnUpdateReader");
-    buttonUpdateReader.innerHTML='Редактировать читателя';
-    document.getElementById("divFormCreateReader").append(buttonUpdateReader)
-    buttonUpdateReader.onclick = function() {
+   	var buttonUpdateReader = document.createElement("button");
+    	buttonUpdateReader.classList.add("btnUpdateReader");
+    	buttonUpdateReader.innerHTML='Редактировать читателя';
+    	document.getElementById("divFormCreateReader").append(buttonUpdateReader)
+    	buttonUpdateReader.onclick = function() {
         var readerData = getFormReaderData("update");
         zaprosPostAjax('../controllers/ReaderController.php', readerData);
-       zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
+        zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
     }   
 }
-
