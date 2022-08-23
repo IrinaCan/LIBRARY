@@ -92,9 +92,9 @@ function formCreateTaking() {
     	+"'>Добавить выдачу книги</button>"	
 	+"</form>"
 	+"</div>";
-  divFormCreateTaking.innerHTML = formCreateTaking;
-makeSelectAllReaders(); 
-makeSelectBooksInLibr(); 
+    divFormCreateTaking.innerHTML = formCreateTaking;
+    makeSelectAllReaders(); 
+    makeSelectBooksInLibr(); 
 };
 
 function makeSelectAllReaders() {
@@ -124,15 +124,15 @@ function makeSelectBooksInLibr() {
 function createTaking() {
     var dateTake = document.forms["formCreateTaking"]["dateTake"].value;
     var taking = {
-        method:"create",
-        day:dateTake.substr(0,2),
-        month:dateTake.substr(3,4),
-        year:dateTake.substr(6,9),
-        idReader:document.forms["formCreateTaking"]["selectAllReaders"].value,
-        idBook:document.forms["formCreateTaking"]["selectBooksInLibr"].value,
-        dateGive:document.forms["formCreateTaking"]["dateGive"].value
-    };
-var newTaking =  JSON.stringify(taking);
-zaprosPostAjax('../controllers/TakingController.php', newTaking);
-zaprosGetAjax('../controllers/TakingController.php'+'?'+'method=readAll', createTableTaking);    
+       	 method:"create",
+       	 day:dateTake.substr(0,2),
+       	 month:dateTake.substr(3,4),
+       	 year:dateTake.substr(6,9),
+       	 idReader:document.forms["formCreateTaking"]["selectAllReaders"].value,
+         idBook:document.forms["formCreateTaking"]["selectBooksInLibr"].value,
+       	 dateGive:document.forms["formCreateTaking"]["dateGive"].value
+    	};
+	var newTaking =  JSON.stringify(taking);
+    zaprosPostAjax('../controllers/TakingController.php', newTaking);
+    zaprosGetAjax('../controllers/TakingController.php'+'?'+'method=readAll', createTableTaking);    
 }
