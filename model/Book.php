@@ -26,16 +26,16 @@ class Book
 		LEFT JOIN publish_houses ON
 		books.id_house=publish_houses.id
 		ORDER BY authors.surname";	 
-    	$result = Database::connect()->query($sql);
+    		$result = Database::connect()->query($sql);
 		return $result;     
 	}
 
 	public function createBook() 		
 	{
 		$sql = "SET foreign_key_checks=0;
-    	INSERT INTO ".$this->tableName."
-    	(id_author, title, id_genre, id_house)
-    	VALUES('".$this->idAuthor."', '".$this->title."',
+    		INSERT INTO ".$this->tableName."
+    		(id_author, title, id_genre, id_house)
+    		VALUES('".$this->idAuthor."', '".$this->title."',
 		'".$this->idGenre."', '".$this->idHouse."')";
 
 		if (Database::connect()->multi_query($sql)) { 
@@ -49,11 +49,10 @@ class Book
 		authors.lastname, books.title
 		FROM books
 		LEFT JOIN authors on books.id_author=authors.id 
-    	WHERE in_library = 1
+    		WHERE in_library = 1
 		ORDER BY authors.surname";
 		$result = Database::connect()->query($sql);
 		return $result;     
 	}
 }
 ?>
-
