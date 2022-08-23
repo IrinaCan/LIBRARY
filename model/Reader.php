@@ -35,7 +35,6 @@ class Reader
         }
     }
     
- 
     public function updateReader() 
     {
         $convertDate = new ConvertDate($this->dayB, $this->monthB,
