@@ -101,10 +101,10 @@ function makeSelectAllReaders() {
         zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', 
     		function(data) {
         		for (x in data) {
-        		var selectAllReaders = document.getElementById('selectAllReaders');
-        		selectAllReaders.innerHTML+=
-        		"<option value='"+data[x].id+"'>"+ data[x].surname+" "+data[x].name
-        		+"</option>"
+        			var selectAllReaders = document.getElementById('selectAllReaders');
+        			selectAllReaders.innerHTML+=
+        			"<option value='"+data[x].id+"'>"+ data[x].surname+" "+data[x].name
+        			+"</option>"
         		}
     	})
 }
@@ -113,11 +113,11 @@ function makeSelectBooksInLibr() {
         zaprosGetAjax('../controllers/BookController.php'+'?'+'method=readInLibr', 
     		function(data) {
         		for (x in data) {
-       			var selectBooksInLibr = document.getElementById('selectBooksInLibr');
-       			selectBooksInLibr.innerHTML+=
-        		"<option value='"+data[x].id+"'>"+data[x].surname+" "+data[x].name+" "
-       			+data[x].lastname+"<br> \"" +data[x].title+"\"</option>"
-        	}
+       				var selectBooksInLibr = document.getElementById('selectBooksInLibr');
+       				selectBooksInLibr.innerHTML+=
+        			"<option value='"+data[x].id+"'>"+data[x].surname+" "+data[x].name+" "
+       				+data[x].lastname+"<br> \"" +data[x].title+"\"</option>"
+        		}
    	})
 }
 
