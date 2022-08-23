@@ -1,0 +1,146 @@
+body{	
+	background:lightyellow;
+	display:grid;
+
+	grid-template-areas:
+	"header header header"
+	"nava nava nava"
+	"main main main";
+
+	grid-template-rows: 70px 50px ;	
+}
+.header{
+	grid-area:header;	
+	display:grid;
+	margin:-8px;
+	margin-bottom:0px;
+	background:lightyellow ;
+	color:orangered;
+	font-stretch:extra-expanded;
+	text-align:center;
+	font-size:55px;
+}	
+.nava {
+	display: grid;
+    grid-template-columns:33vw 34vw 33vw;
+	margin-left:-8px;
+	margin-right:-8px;
+    background:rgb(248, 207, 153);
+	color:orangered;
+	font-stretch:extra-expanded;
+	text-align:center;
+	font-size:30px;
+	cursor:pointer;
+}	
+.nava1:hover, .nava2:hover, .nava3:hover{
+	background: lightyellow;
+}
+.main{
+	grid-area:main;
+	display:grid;
+	background:lightyellow;
+	margin:-8px;
+}
+
+/* 
+div{
+	cursor:pointer;
+}
+ */
+
+/* 	.divUpdate{
+		background:red;
+		height: 30px;
+	}
+	.butCreate{
+		background: rgb(128, 0, 60);
+		height: 50px;
+		
+	} */
+
+.divTableBooks, .divTableReaders, .divTableTaking{
+    position:absolute;
+	left:1%;
+}
+.divFormCreateReader, .divFormCreateBook, .divFormCreateTaking,
+.divFormCreateAuthor{
+	background: #b3b9ce;;
+	position:absolute;
+	right:0%;
+	top:18%;
+	box-shadow: -10px 10px 20px;
+	padding: 2%;
+	height: 260px;
+}
+.divFormCreateAuthor{
+	position:absolute;
+	top:30%;
+}
+.divFormCreateReader{
+	position: absolute;
+	height: 510px;
+}
+.btnCloseForm{
+	color: orangered;
+  }
+.btnCreateBook, .btnCreateAuthor, .btnCreateReader,
+.btnDeleteReader, .btnUpdateReader, .btnCreateTaking{
+	background: orangered;
+	position: absolute;
+	margin-top: 15px;
+	right: 60px;
+	padding: 7px;
+	border-radius: 5px;
+	border: hidden;
+	cursor: pointer;
+  }
+.btnDeleteReader{
+	right: 230px;
+}
+.btnUpdateReader{
+	right: 30px;
+}
+
+.buttonCreateReader, .buttonCreateBook, .buttonCreateTaking{
+	background: orangered;
+	height: 75px;
+	width: 300px;
+	border-radius: 0%;
+	font-weight: normal;
+	font-size: 25px;
+	padding: 2px;
+	margin: 12px;
+	border: none;
+	cursor: pointer;
+}
+.tableReaders, .tableBooks, .tableTaking{
+	border-collapse: collapse;  
+}
+th {
+  font-size: 15px;
+  font-weight: normal;
+  background: #d6d7da;
+  border-top: 0px solid #aabcfe;
+  border-bottom: 1px solid white;
+  color: rgb(26, 24, 24);
+  padding: 12px;
+}
+td {
+  background: #b3b9ce;
+  border-bottom: 1px solid white;
+  color: rgb(14, 14, 15);
+  border-top: 1px solid transparent;
+  padding: 12px;
+}
+ tr:hover td {
+  background: orangered;
+  cursor: pointer;
+}
+.tdDelete, .idUpdate, .tdChange {
+	background:orangered; 
+}
+
+
+	
+	
+	

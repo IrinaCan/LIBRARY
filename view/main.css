@@ -1,0 +1,105 @@
+body{
+	background:sandybrown;
+}
+h1{
+	color:orangered;
+	font-stretch:extra-expanded;
+	text-align:center;
+	font-size:75px;
+}
+img{
+	width:600px;
+    height:400px;
+}
+.picture{
+	text-align:center;
+}
+.vhod{
+	width:100px;
+	height:50px;
+    border-radius:15px;
+	background:black;
+	color:sandybrown;
+	font-size:20px;
+	font-weight:bolder;
+	font-stretch:extra-expanded;
+	position:absolute;
+	right:7%;
+	top:11%;
+	cursor:pointer;
+}
+.vhod:hover{
+	background:sandybrown;
+	color:black;
+}
+.formVhod{
+	display:grid;
+	grid-template-areas:
+	"closeBtn"
+	"field"
+	"field"
+	"send";
+	
+	grid-auto-rows:30px;
+	grid-gap:15px;
+	align-items:stretch;
+	padding:3%;
+	border:5px solid grey;
+	position:absolute;
+	right:4%;
+	top:23%;
+	background:sandybrown;
+	visibility:hidden;
+	padding-top:13px;
+}	
+
+
+.field{
+	grid-area:field;	
+}	
+.send{
+	grid-area:send;
+	background:orangered;
+	cursor:pointer;
+	
+}
+input{
+	border:hidden;
+	border-bottom:1px solid grey;
+	background:sandybrown;
+}
+.close{
+	grid-area:close;
+}
+
+.close{
+	font-weight:bolder;
+	width:23px;
+	height:23px;
+	position:absolute;
+	right:5%;
+	background:orangered;
+	cursor:pointer;
+}
+
+	
+
+
+
+
+
+
+
+@media all and (max-width:875px){
+	.vhod{
+	right:45%;
+	top:23%;
+	}
+	.picture{
+		position:absolute;
+		top:33%;
+		left:8%;
+		text-align:center;
+	}
+}
+
