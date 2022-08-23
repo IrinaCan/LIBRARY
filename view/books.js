@@ -23,8 +23,7 @@ function createTableBooks(data) {
         +"<th>Издательство</th>"
         +"<th>Статус</th>"
         +"<th>Удалить</th>"
-      
-    +"</tr>";
+        +"</tr>";
     for(x in data) {
     tableBooks+="<tr onclick = 'deleteBook(this)'>"
         +"<td>"+data[x].id+"</td>"
@@ -109,7 +108,7 @@ function deleteBook(tr) {
         var dataBook = {
         	method:"delete",
         	id:table.rows[indexReader].cells[0].innerHTML
-    }
+    	}
     dataBook = JSON.stringify(dataBook);
     zaprosPostAjax('../controllers/BookController.php', dataBook);   
     zaprosGetAjax('../controllers/BookController.php'+'?'+'method=readAll', createTableBooks);    
@@ -133,7 +132,7 @@ function createNewAuthor() {
 	divFormCreateAuthor.id = 'divFormCreateAuthor';
 	document.getElementById('divFormCreateBook').append(divFormCreateAuthor);
 
-    var formCreateAuthor = "<div>"
+   	var formCreateAuthor = "<div>"
 	+"<button class='btnCloseForm' onclick=divFormCreateBook.removeChild(document.getElementById('divFormCreateAuthor'))>Закрыть</button>"
       	+"<form id='formCreateAuthor'><table>"
       	+"<tr><td>Фамилия</td>"
@@ -145,8 +144,8 @@ function createNewAuthor() {
       	+"<button type='button' class='btnCreateAuthor' onclick = 'createAuthor()' "
       	+"'>Добавить нового автора</button>"
     	+"</form>"
-    +"</div>";
-    divFormCreateAuthor.innerHTML = formCreateAuthor;
+    	+"</div>";
+    	divFormCreateAuthor.innerHTML = formCreateAuthor;
 }
  
 function getFormCreateAuthorData() {
