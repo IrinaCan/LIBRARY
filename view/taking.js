@@ -99,14 +99,14 @@ makeSelectBooksInLibr();
 
 function makeSelectAllReaders() {
         zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', 
-    function(data) {
-        for (x in data) {
-        	var selectAllReaders = document.getElementById('selectAllReaders');
-        	selectAllReaders.innerHTML+=
-        	"<option value='"+data[x].id+"'>"+ data[x].surname+" "+data[x].name
-        	+"</option>"
-        	}
-    })
+    		function(data) {
+        		for (x in data) {
+        		var selectAllReaders = document.getElementById('selectAllReaders');
+        		selectAllReaders.innerHTML+=
+        		"<option value='"+data[x].id+"'>"+ data[x].surname+" "+data[x].name
+        		+"</option>"
+        		}
+    	})
 }
 
 function makeSelectBooksInLibr() {
