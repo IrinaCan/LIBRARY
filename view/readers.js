@@ -103,7 +103,7 @@ function getFormReaderData($method) {
 	address:document.forms["formCreateUpdateReader"]["address"].value,
 	phone:document.forms["formCreateUpdateReader"]["phone"].value,
 	email:document.forms["formCreateUpdateReader"]["email"].value
-   };
+    };
 return JSON.stringify(reader);
 };
 
@@ -126,9 +126,9 @@ function updateDeleteReader(tr) {
         address: table.rows[indexReader].cells[4].innerHTML,
         phone: table.rows[indexReader].cells[5].innerHTML,
         email: table.rows[indexReader].cells[6].innerHTML
-    }
+   	}
 
- formCreateUpdateDeleteReader(dataReader.id, dataReader.surname, dataReader.name,
+    formCreateUpdateDeleteReader(dataReader.id, dataReader.surname, dataReader.name,
         dataReader.dayB, dataReader.monthB, 
         dataReader.yearB, dataReader.address, 
         dataReader.phone, dataReader.email);
@@ -140,24 +140,23 @@ function updateDeleteReader(tr) {
     	buttonDeleteReader.innerHTML='Удалить читателя';
     	document.getElementById("divFormCreateReader").append(buttonDeleteReader);
    	buttonDeleteReader.onclick = function() {
-   	var idReaderAndMethod= {
-        	method:"delete",
-        	idReader:document.forms["formCreateUpdateReader"]["id"].value
-    }; 
-idReaderAndMethod = JSON.stringify(idReaderAndMethod);
-if(confirm("Вы уверены, что хотите удалить данного читателя?")
-    == true) {  
-	zaprosPostAjax('../controllers/ReaderController.php', idReaderAndMethod);    
-	zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
+   		var idReaderAndMethod= {
+        		method:"delete",
+        		idReader:document.forms["formCreateUpdateReader"]["id"].value
+    		}; 
+	idReaderAndMethod = JSON.stringify(idReaderAndMethod);
+		if(confirm("Вы уверены, что хотите удалить данного читателя?") == true) {  
+			zaprosPostAjax('../controllers/ReaderController.php', idReaderAndMethod);    
+			zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
+		}
 	}
-}
    	var buttonUpdateReader = document.createElement("button");
     	buttonUpdateReader.classList.add("btnUpdateReader");
     	buttonUpdateReader.innerHTML='Редактировать читателя';
     	document.getElementById("divFormCreateReader").append(buttonUpdateReader)
     	buttonUpdateReader.onclick = function() {
         var readerData = getFormReaderData("update");
-        zaprosPostAjax('../controllers/ReaderController.php', readerData);
-        zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
-    }   
+        	zaprosPostAjax('../controllers/ReaderController.php', readerData);
+        	zaprosGetAjax('../controllers/ReaderController.php'+'?'+'method=readAll', createTableReaders);
+        }   
 }
