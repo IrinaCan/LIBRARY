@@ -22,10 +22,10 @@ body{
 }	
 .nava {
 	display: grid;
-    grid-template-columns:33vw 34vw 33vw;
+    	grid-template-columns:33vw 34vw 33vw;
 	margin-left:-8px;
 	margin-right:-8px;
-    background:rgb(248, 207, 153);
+    	background:rgb(248, 207, 153);
 	color:orangered;
 	font-stretch:extra-expanded;
 	text-align:center;
@@ -41,25 +41,8 @@ body{
 	background:lightyellow;
 	margin:-8px;
 }
-
-/* 
-div{
-	cursor:pointer;
-}
- */
-
-/* 	.divUpdate{
-		background:red;
-		height: 30px;
-	}
-	.butCreate{
-		background: rgb(128, 0, 60);
-		height: 50px;
-		
-	} */
-
 .divTableBooks, .divTableReaders, .divTableTaking{
-    position:absolute;
+	position:absolute;
 	left:1%;
 }
 .divFormCreateReader, .divFormCreateBook, .divFormCreateTaking,
@@ -82,7 +65,7 @@ div{
 }
 .btnCloseForm{
 	color: orangered;
-  }
+}
 .btnCreateBook, .btnCreateAuthor, .btnCreateReader,
 .btnDeleteReader, .btnUpdateReader, .btnCreateTaking{
 	background: orangered;
@@ -93,14 +76,13 @@ div{
 	border-radius: 5px;
 	border: hidden;
 	cursor: pointer;
-  }
+}
 .btnDeleteReader{
 	right: 230px;
 }
 .btnUpdateReader{
 	right: 30px;
 }
-
 .buttonCreateReader, .buttonCreateBook, .buttonCreateTaking{
 	background: orangered;
 	height: 75px;
@@ -116,7 +98,7 @@ div{
 .tableReaders, .tableBooks, .tableTaking{
 	border-collapse: collapse;  
 }
-th {
+th{
   font-size: 15px;
   font-weight: normal;
   background: #d6d7da;
@@ -125,22 +107,17 @@ th {
   color: rgb(26, 24, 24);
   padding: 12px;
 }
-td {
+td{
   background: #b3b9ce;
   border-bottom: 1px solid white;
   color: rgb(14, 14, 15);
   border-top: 1px solid transparent;
   padding: 12px;
 }
- tr:hover td {
+ tr:hover td{
   background: orangered;
   cursor: pointer;
 }
-.tdDelete, .idUpdate, .tdChange {
+.tdDelete, .idUpdate, .tdChange{
 	background:orangered; 
 }
-
-
-	
-	
-	
