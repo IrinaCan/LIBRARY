@@ -9,7 +9,7 @@ h1{
 }
 img{
 	width:600px;
-    height:400px;
+    	height:400px;
 }
 .picture{
 	text-align:center;
@@ -17,7 +17,7 @@ img{
 .vhod{
 	width:100px;
 	height:50px;
-    border-radius:15px;
+   	border-radius:15px;
 	background:black;
 	color:sandybrown;
 	font-size:20px;
@@ -52,8 +52,6 @@ img{
 	visibility:hidden;
 	padding-top:13px;
 }	
-
-
 .field{
 	grid-area:field;	
 }	
@@ -61,7 +59,6 @@ img{
 	grid-area:send;
 	background:orangered;
 	cursor:pointer;
-	
 }
 input{
 	border:hidden;
@@ -71,7 +68,6 @@ input{
 .close{
 	grid-area:close;
 }
-
 .close{
 	font-weight:bolder;
 	width:23px;
@@ -81,15 +77,6 @@ input{
 	background:orangered;
 	cursor:pointer;
 }
-
-	
-
-
-
-
-
-
-
 @media all and (max-width:875px){
 	.vhod{
 	right:45%;
@@ -102,4 +89,3 @@ input{
 		text-align:center;
 	}
 }
-
