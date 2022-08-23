@@ -70,8 +70,6 @@ function create($readerData) {
     }
 }
 
-
-
 function update($readerData) {
     $reader = new Reader();
     $reader->idReader = (int)$readerData->id;
@@ -102,5 +100,4 @@ function delete($readerData) {
         echo "Не удалён.";
     }
 }
-
 ?>
